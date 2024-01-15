@@ -44,11 +44,11 @@ Alpine is a very lightweight and secure Linux distribution used frequently in bu
 
 2. Setup an Alpine VM, make sure to add to it the previously created adapter as well as a NAT one. Give the machine enough computational and memory resources. Experiment with these parameters for best performance.
 
-3. To set up the Alpine VM as a DHCP server and configure it as a router for the other VMs, follow the steps outlined in [this webpage](https://cylab.be/blog/221/a-light-nat-router-and-dhcp-server-with-alpine-linux). The instructions cover setting up the DHCP server and configuring the VM as a NAT router. Before configuring the NAT forward rule, ensure that the machine is set up to connect to your preferred VPN upon boot. Once that is done, you can proceed to set up the NAT forward rule for the respective VPN's network interface.
+3. To set up the Alpine VM as a DHCP server and configure it as a router for the other VMs, follow the steps outlined in [this webpage](https://cylab.be/blog/221/a-light-nat-router-and-dhcp-server-with-alpine-linux). The instructions cover setting up the DHCP server and configuring the VM as a NAT router. It is not mentioned in the article, however, you might want to configure the LAN network's adapter with a static IP that corresponds to the router one specified in the DHCP configuration file. Before configuring the NAT forward rule, ensure that the machine is set up to connect to your preferred VPN upon boot. Once that is done, you can proceed to set up the NAT forward rule for the respective VPN's network interface.
 
 4. Give your main virtual machines access only to the LAN Network adapter you created.
 
-Once this setup is complete, the remaining VMs with access to the router should be able to obtain IP addresses via DHCP and access the internet through the router VM. Upon configuring and testing this setup, I found that the performance was nearly identical to directly connecting my physical machine to my VPN provider's servers.
+Once this setup is complete, the remaining VMs with access to the router should be able to obtain IP addresses via DHCP and access the internet through the router VM. Consider creating a service that automates all the setup processes. Upon configuring and testing this setup, I found that the performance was nearly identical to directly connecting my physical machine to my VPN provider's servers. 
 
 ### 2.2 Comments
 
